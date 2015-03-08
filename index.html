@@ -360,13 +360,10 @@
 		top: 5%;
 		/*opacity: .7*/;
 	}
-	.landingPageText{
+	.landingPageTitle{
 		position: absolute;
-		top: 40%;
-		margin-right: auto;
-		margin-left: auto;
-		left: 0;
-		right: 0;
+		top: 0%;
+		left: 30%;
 		text-align: center;
 		font-family:'FuturaDW01_SC-SCLight';
 		width: 100%;
@@ -375,11 +372,44 @@
 
 	}
 
-	.landingPageText h1{
+	.landingPageTitle h1{
 		font-size: 115px;
-		font-weight: 100px;
+		font-weight: 100 !important;
 		color: white;
 		background: black;
+		padding-top: .2em;
+		letter-spacing: -8px;
+	}
+
+	.landingPageTitleWrapper{
+		background: black;
+		opacity: .9;
+		margin-right: 8em;
+		height: 17.6%;
+	}
+
+	.nextPage{
+		position: absolute;
+		top: 85%;
+		left: 92%;
+		background: white
+		text-align: center;
+		width: 10%;
+		height: 8em;
+		opacity: .9;
+	}
+
+	.nextPage button{
+		font-family: 'FuturaDW01_SC-SCLight';
+		background: white;
+		border: 2px solid white;
+		color: black;
+		font-size: 40px;
+		width: 150px;
+		height: 100%;
+		opacity: .9;
+		font-weight: 900;
+		cursor: pointer;
 	}
 	video#bgvid {
 		position: fixed; right: 0; bottom: 0;
@@ -474,25 +504,13 @@
 
 
 <div class="header" id="pOverlay">
-<div class="landingPageText">
-<h1 style="
-    font-weight: 100;
-    /* position: absolute; */
-    left: 1;
-    left: 60px;
-    font-size: 115px;
-    color: rgb(142, 232, 244);
-    /* text-decoration: overline; */
-    /* font-style: normal; */
-    /* letter-spacing: -.065em; */
-    /* border-bottom: black; */
-    /* border: black; */
-    /* border-right: black; */
-    border-bottom: 2px solid white;
-    background: black;
-"> Skeletons Of Silence </h1>
-	<h1> Skeletons Of Silence </h1>
-	<button><h2>More Info</h2></button>
+<div class="landingPageTitle">
+	<div class="landingPageTitleWrapper">
+	<h1 style="font-weight: 100;"> Skeletons Of Silence </h1>
+	</div>
+</div>
+<div class="nextPage">
+<button>More Info</button>
 </div>
 	<video autoplay loop poster="images/SkeletonsOfSilenceCover.png" id="bgvid">
 	<source src="videos/SkeletonsOfSilence.mp4" type="video/mp4">
