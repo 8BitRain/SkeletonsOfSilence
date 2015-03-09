@@ -272,12 +272,11 @@
 	}
 	.webdevPage{
 		position: absolute;
-		top: 0%;
-		height: 110%;
+		top: 110%;
+		height: 100%;
 		width: 100%;
 		font-family: 'Sorts Mill Goudy', serif;
 		font-size: 30;
-		background-image: url(images/dothatch.png);
 		/*padding-top: 5%;*/
 	}
 
@@ -357,40 +356,41 @@
 		height: 100%;
 		position: absolute;
 		margin-left: auto;
-		top: 5%;
+		top: 5.4%;
 		/*opacity: .7*/;
 	}
 	.landingPageTitle{
 		position: absolute;
-		top: 0%;
-		left: 30%;
+		top: -1.5%;
+		left: 0%;
 		text-align: center;
 		font-family:'FuturaDW01_SC-SCLight';
 		width: 100%;
 		height: 100%;
-		transform: rotate(90deg);
+		/*transform: rotate(90deg);*/
 
 	}
 
 	.landingPageTitle h1{
-		font-size: 115px;
+		/*font-size: 115px;*/
 		font-weight: 100 !important;
 		color: white;
 		background: black;
-		padding-top: .2em;
-		letter-spacing: -8px;
+		/*padding-top: .2em;*/
+		letter-spacing: .2em;
+
 	}
 
 	.landingPageTitleWrapper{
 		background: black;
 		opacity: .9;
-		margin-right: 8em;
-		height: 17.6%;
+		/*height: 17.6%;*/
+		width: 100%;
 	}
 
 	.nextPage{
 		position: absolute;
-		top: 85%;
+		top: 84%;
 		left: 92%;
 		background: white
 		text-align: center;
@@ -504,12 +504,12 @@
 
 
 <div class="header" id="pOverlay">
-<div class="landingPageTitle">
+<div class="landingPageTitle" id="landingPageTitle">
 	<div class="landingPageTitleWrapper">
 	<h1 style="font-weight: 100;"> Skeletons Of Silence </h1>
 	</div>
 </div>
-<div class="nextPage">
+<div class="nextPage" id="nextPage">
 <button>More Info</button>
 </div>
 	<video autoplay loop poster="images/SkeletonsOfSilenceCover.png" id="bgvid">
@@ -601,7 +601,7 @@
 	$(document).ready(function(){
 		
 				canScroll = true;
-				$("#toNextPage").fadeTo(200, .6);
+				$("#nextPage").fadeTo(200, .6);
 		
 
 	});
@@ -665,8 +665,9 @@
 	    	$('#aStatement').fadeOut(200);
 	    	//$('#topNavs').fadeOut(200);
 	    	$('#sitesMade').fadeOut(200);
+	    	$('#landingPageTitle').fadeIn(200);
 	    	$("#webdevPage").animate({
-	 				top: "0%"
+	 				top: "100%"
 	 			}, 1200);
 	 		$('html,body').animate({
 	        	scrollTop: 0
@@ -715,7 +716,8 @@
        // if(waypointNameHit == false)
  		//{
  			console.log("Scrolling Down");
- 			$('#toNextPage').fadeOut(200);
+ 			$('#landingPageTitle').fadeOut(200);
+ 			$('#nextPage').fadeOut(200);
  			var p = $('#webdevPage').position();
  			$('html,body').animate({
 	        	scrollTop: 430
@@ -748,6 +750,7 @@
 	    		//$('#topNavs').fadeIn(200);
 	    		$('#aStatement').fadeTo('slow', .9);
 	    		$('#sitesMade').fadeIn(200);
+
 	    		pageState = 1;	
 	    	});
 	    	//Responsive desigin for 1366 by 768
@@ -794,7 +797,7 @@ function fadeInTitle(){
 	//{
 		$('#titles').fadeTo('1200', .9);
 		$("#name-waypoint").fadeIn(600);
-		$('#toNextPage').fadeIn(200);
+		$('#nextPage').fadeIn(200);
 		//$('#titles').fadeIn(1200);
 	//}
 }
@@ -828,7 +831,7 @@ $(window).on('mousewheel DOMMouseScroll wheel', function(e){
 
 });
 //Handle moving on to nextPage if the user clicks waypoint
-$('#toNextPage').on('click', function(e){
+$('#nextPage').on('click', function(e){
 	if(canScroll){
 		fadeOutTitle();
 		hitNextButton1 = true;
