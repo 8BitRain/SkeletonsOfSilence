@@ -267,7 +267,7 @@
 		z-index: 4;
 		display: none;
 		top: 89%;
-		opacity: .6;
+		/*opacity: .6;*/
 		cursor: pointer;
 	}
 	.webdevPage{
@@ -388,7 +388,15 @@
 		width: 100%;
 	}
 
-	.nextPage{
+	.footerWrapper{
+		background: black;
+		height: 4.3%;
+		top: 96%;
+		position: absolute;
+		width: 100%;
+	}
+
+	/*.nextPage{
 		position: absolute;
 		top: 84%;
 		left: 92%;
@@ -397,9 +405,18 @@
 		width: 10%;
 		height: 8em;
 		opacity: .9;
+	}*/
+
+	.nextPage {
+		position: absolute;
+		top: 96%;
+		left: 87%;
+		width: 10%;
+		height: 4%;
+		opacity: .9;
 	}
 
-	.nextPage button{
+	/*.nextPage button{
 		font-family: 'FuturaDW01_SC-SCLight';
 		background: white;
 		border: 2px solid white;
@@ -410,7 +427,20 @@
 		opacity: .9;
 		font-weight: 900;
 		cursor: pointer;
+	}*/
+	.nextPage button {
+		font-family: 'FuturaDW01_SC-SCLight';
+		background: rgb(253, 253, 253);
+		border: 2px solid white;
+		color: black;
+		font-size: 2em;
+		width: 250px;
+		height: 100%;
+		opacity: .9;
+		font-weight: 900;
+		cursor: pointer;
 	}
+
 	video#bgvid {
 		position: fixed; right: 0; bottom: 0;
 		
@@ -441,12 +471,16 @@
 			top: 87%;
 		}
 		.webdevPage{
-			top: 50%;
+			top: 100%;
 		}
 
 		.nextPage{
-			top: 82%;
-			left: 89%;
+			left: 82%;
+
+		}
+
+		.nextPage button{
+			font-size: 1.5em;
 		}
 
 		.video{
@@ -470,7 +504,7 @@
   			font-size: 1.5em;
   		}
 		.webdevPage{
-			top: 50%;
+			top: 100%;
 		}
 	}
 	/*Media Queries for Mobile iPhones */
@@ -518,9 +552,7 @@
 	<h1 style="font-weight: 100;"> Skeletons Of Silence </h1>
 	</div>
 </div>
-<div class="nextPage" id="nextPage">
-<button>More Info</button>
-</div>
+
 	<video autoplay loop poster="images/SkeletonsOfSilenceCover.png" id="bgvid">
 	<source src="videos/SkeletonsOfSilence.mp4" type="video/mp4">
 	<source src="videos/SkeletonsOfSilence.webm" type="video/webm">
@@ -561,6 +593,11 @@
 					</th>
 				</tr>
 			</table>
+	</div>
+	<div class="footerWrapper" id="footerWrapper">
+	</div>
+	<div class="nextPage" >
+		<button id="nextPage">More Info</button>
 	</div>
 	<div id="webdevPage" class="webdevPage">
 			<div class="aStatement" id="aStatement">
@@ -610,7 +647,7 @@
 	$(document).ready(function(){
 		
 				canScroll = true;
-				$("#nextPage").fadeTo(200, .6);
+				$("#nextPage").fadeTo(200, .9);
 		
 
 	});
@@ -727,6 +764,7 @@
  			console.log("Scrolling Down");
  			$('#landingPageTitle').fadeOut(200);
  			$('#nextPage').fadeOut(200);
+ 			$('#footerWrapper').fadeOut(200);
  			var p = $('#webdevPage').position();
  			$('html,body').animate({
 	        	scrollTop: 430
@@ -738,30 +776,13 @@
 	    	/*$('#name-waypoint').animate({
 	    		width: "15em"
 	    	}, 1200)*/
-	    	$('#pOverlay').animate({
-	    		//Change to 10% for banner effect
-	    		height: "0%",
-	    		//backgroundPositionY: -400
-	    	}, 1200,  function(){
-	    		//waypointNameHit = true;
-	    		canCheckMouse = true;
-	    		//Display the navigation panel
-	    		$({blurRadius: 5}).animate({blurRadius: 0}, {
-        				duration: 500,
-        				easing: 'swing', // or "linear"
-                         // use jQuery UI or Easing plugin for more options
-        				step: function() {
-            				console.log(this.blurRadius);
-            				
-        				}
-    				});
-	    		var topNav = document.getElementById
+	    	
 	    		//$('#topNavs').fadeIn(200);
 	    		$('#aStatement').fadeTo('slow', .9);
 	    		$('#sitesMade').fadeIn(200);
 
 	    		pageState = 1;	
-	    	});
+	    	
 	    	//Responsive desigin for 1366 by 768
 	    	if($(window).width() == 1366){
 	    		$("#webdevPage").animate({
@@ -807,6 +828,7 @@ function fadeInTitle(){
 		$('#titles').fadeTo('1200', .9);
 		$("#name-waypoint").fadeIn(600);
 		$('#nextPage').fadeIn(200);
+		$('#footerWrapper').fadeIn(200);
 		//$('#titles').fadeIn(1200);
 	//}
 }
